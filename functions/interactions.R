@@ -272,34 +272,8 @@ perform_single_interaction <- function(pop, interactionsLog, nrSim, groupsInfo, 
       percNr <- sample(groupsInfo$agentID[groupsInfo$group == randomGroup], 1, 
                        prob = params[["listenerProb"]][groupsInfo$group == randomGroup])
       
-      # or choose interaction partners from different or same groups
-    } else if (params[["interactionPartners"]] == "betweenWithinGroups") {
-      # first select which group interaction should be made based on interactionTypeProb
-      interactionTypes=expand.grid(unique(groupsInfo$group),unique(groupsInfo$group))
-      #print(interactionTypes)
-      interactionType <- sample(nrow(interactionTypes),size=1,prob = params[["interactionTypeProb"]])
-      #print(params[["interactionTypeProb"]])
-      
-      if (interactionTypes[interactionType,1]==interactionTypes[interactionType,2]) {
-        #within group interaction
-        randomGroup <- interactionTypes[interactionType,1]
-        prodNr <- sample(groupsInfo$agentID[groupsInfo$group == randomGroup], 1, 
-                         prob = params[["speakerProb"]][groupsInfo$group == randomGroup])
-        percNr <- sample(groupsInfo$agentID[groupsInfo$group == randomGroup], 1, 
-                         prob = params[["listenerProb"]][groupsInfo$group == randomGroup])
-        
-      } else if (interactionTypes[interactionType,1]!=interactionTypes[interactionType,2]) {
-        #between group interaction
-        randomPercGroup <- interactionTypes[interactionType,1]
-        randomProdGroup <- interactionTypes[interactionType,2]
-        prodNr <- sample(groupsInfo$agentID[groupsInfo$group == randomPercGroup], 1, 
-                         prob = params[["speakerProb"]][groupsInfo$group == randomPercGroup])
-        percNr <- sample(groupsInfo$agentID[groupsInfo$group == randomProdGroup], 1, 
-                         prob = params[["listenerProb"]][groupsInfo$group == randomProdGroup])
-      }
       # or choose interaction partners from different groups
     } else if (params[["interactionPartners"]] == "betweenGroups") {
-      
       randomGroups <- sample(unique(groupsInfo$group), 2)
       randomPercGroup <- randomGroups[1]
       randomProdGroup <- randomGroups[2]

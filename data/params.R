@@ -59,15 +59,6 @@ params = list(
   speakerProb = NULL,                            # NULL or a vector of numerics; whether some agents should speak more often than others
   listenerProb = NULL,                           # NULL or a vector of numerics; whether some agents should listen more often than others
   
-  interactionPartners = "betweenWithinGroups",    # "random" or "betweenGroups" or "withinGroups" or "betweenWithinGroups"; from which groups the interacting agents must be
-  speakerProb = NULL, 
-  listenerProb = NULL,
-  interactionTypeProb = NULL,                     # NULL or a vector of numerics used with "betweenWithinGroups"; for each group/group combination we need one prob, e.g. for 
-                                                 # two groups with id 1 and 2 we have combinations 1_1, 2_1, 1_2, 2_2 so need a vector c(p1,p2,p3,p4), for three groups we have 
-                                                # 1_1, 2_1, 3_1, 1_2, 2_2, 3_2, 1_3, 2_3, 3_3 so need a vector c(p1,p2,p3,p4,p5,p6,p7,p8,p9).
-                                                  # The first number encodes the production, the second the perception, so by providing the prob for 2_1 we can set
-                                                  # the prob for speaker from group 2 and listener from group 1. You need to know the group ID.
-  
   ##### Split and merge
   
   splitAndMerge = FALSE,                         # apply split & merge algorithm or not
