@@ -54,11 +54,7 @@ params = list(
   memoryRemovalStrategy = "random",              # "random" (recommended) or "outlierRemoval" or "timeDecay"
   
   ##### Interactions
-  
-  interactionPartners = "betweenGroups",         # "random" or "betweenGroups" or "withinGroups"; from which groups the interacting agents must be
-  speakerProb = NULL,                            # NULL or a vector of numerics; whether some agents should speak more often than others
-  listenerProb = NULL,                           # NULL or a vector of numerics; whether some agents should listen more often than others
-  
+
   interactionPartners = "betweenWithinGroups",    # "random" or "betweenGroups" or "withinGroups" or "betweenWithinGroups"; from which groups the interacting agents must be
   speakerProb = NULL, 
   listenerProb = NULL,
